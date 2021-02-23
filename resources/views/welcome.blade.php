@@ -82,7 +82,7 @@
             </ul>
           </li>
 
-          <li class="drop-down"><a href="">{{ trans('message.Legal Framework') }}</a>
+          <li class="drop-down"><a href="">{{ trans('message.Legal') }}</a>
             <ul>
               <li><a href="#">{{ trans('message.Law') }}</a></li>
               <li><a href="#">{{ trans('message.Instruction') }}</a></li>
