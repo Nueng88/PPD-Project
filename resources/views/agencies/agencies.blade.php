@@ -4,7 +4,11 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" target="_blank" >
 @endsection
 
-@section('name')
+@section('tab-title')
+{{trans('message.Agencies')}}
+@endsection
+
+@section('title')
     {{trans('message.Agencies')}}
 @endsection
 @section('content')
@@ -16,13 +20,12 @@
       </tr>
   </thead>
   <tbody>
-
     <tr><!--ກະຊວງ ສຶກສາທິການ ແລະ ກິລາ-->
       <td style="width: 2px;">1</td>
       <td>
-        <a href="http://www.moes.edu.la/" class="card my-1" target="_blank" >
+        <a href="http://www.moes.edu.la/" class="card my-1 link-primary" target="_blank" >
           <div class="card-body">
-            {{ trans('message.Ministry of Education & Sports') }}
+            <strong>{{ trans('message.Ministry of Education & Sports') }}</strong>
           </div>
         </a>
       </td>
@@ -31,9 +34,9 @@
     <tr> <!--ກະຊວງ ຍຸດຕິທຳ-->
       <td style="width: 2px;">2</td>
       <td>
-        <a href="http://www.moj.gov.la/" class="card my-1" target="_blank">
+        <a href="http://www.moj.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Justice') }}
+            <strong>{{ trans('message.Ministry of Justice') }}</strong>
           </div>
         </a>
       </td>
@@ -42,9 +45,9 @@
     <tr> <!--ກະຊວງ ສາທາລະນະສຸກ-->
       <td style="width: 2px;">3</td>
       <td>
-        <a href="https://moh.gov.la/" class="card my-1" target="_blank">
+        <a href="https://moh.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Health') }}
+            <strong>{{ trans('message.Ministry of Health') }}</strong>
           </div>
         </a>
       </td>
@@ -53,9 +56,9 @@
     <tr> <!--ກະຊວງ ກະສິກຳ ແລະ ປ່າໄມ້-->
       <td style="width: 2px;">4</td>
       <td>
-        <a href="https://www.maf.gov.la/" class="card my-1" target="_blank">
+        <a href="https://www.maf.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Agriculture & Forest') }}
+            <strong>{{ trans('message.Ministry of Agriculture & Forest') }}</strong>
           </div>
         </a>
       </td>
@@ -64,9 +67,9 @@
     <tr> <!--ກະຊວງ ແຜນການ ແລະ ການລົງທຶນ -->
       <td style="width: 2px;">5</td>
       <td>
-        <a href="http://investlaos.gov.la/lo/about-us/ministry-of-planning-and-investment-mpi/" class="card my-1" target="_blank">
+        <a href="http://investlaos.gov.la/lo/about-us/ministry-of-planning-and-investment-mpi/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Planning & Investment') }}
+            <strong>{{ trans('message.Ministry of Planning & Investment') }}</strong>
           </div>
         </a>
       </td>
@@ -75,9 +78,9 @@
     <tr> <!--ກະຊວງ ພະລັງງານ ແລະ ບໍ່ແຮ່ -->
       <td style="width: 2px;">6</td>
       <td>
-        <a href="http://www.mem.gov.la/" class="card my-1" target="_blank">
+        <a href="http://www.mem.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Energy & Mines') }}
+            <strong>{{ trans('message.Ministry of Energy & Mines') }}</strong>
           </div>
         </a>
       </td>
@@ -86,9 +89,9 @@
     <tr> <!--ກະຊວງ ອຸດສາຫະກຳ ແລະ ການຄ້າ-->
       <td style="width: 2px;">7</td>
       <td>
-        <a href="http://www.moic.gov.la/" class="card my-1" target="_blank">
+        <a href="http://www.moic.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Industry & Commerce') }}
+            <strong>{{ trans('message.Ministry of Industry & Commerce') }}</strong>
           </div>
         </a>
       </td>
@@ -97,9 +100,9 @@
     <tr> <!--ກະຊວງ ແຮງງານ ແລະ ສະຫວັດດີການສັງຄົມ -->
       <td style="width: 2px;">8</td>
       <td>
-        <a href="http://www.molsw.gov.la/" class="card my-1" target="_blank">
+        <a href="http://www.molsw.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Labor & Social Welfare') }}
+            <strong>{{ trans('message.Ministry of Labor & Social Welfare') }}</strong>
           </div>
         </a>
       </td>
@@ -108,9 +111,9 @@
     <tr> <!--ກະຊວງ ວິທະຍາສາດ ແລະ ເຕັກໂນໂລຊີ -->
       <td style="width: 2px;">9</td>
       <td>
-        <a href="https://www.most.gov.la/" class="card my-1" target="_blank">
+        <a href="https://www.most.gov.la/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Science & Technology') }}
+            <strong>{{ trans('message.Ministry of Science & Technology') }}</strong>
           </div>
         </a>
       </td>
@@ -119,9 +122,9 @@
     <tr> <!--ກະຊວງ ຊັບພະຍາກອນທຳມະຊາດ ແລະ ສິ່ງແວດລ້ອມ -->
       <td style="width: 2px;">10</td>
       <td>
-        <a href="http://www.monre.gov.la/home/" class="card my-1" target="_blank">
+        <a href="http://www.monre.gov.la/home/" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Natural Resource & Environment') }}
+            <strong>{{ trans('message.Ministry of Natural Resource & Environment') }}</strong>
           </div>
         </a>
       </td>
@@ -130,9 +133,9 @@
     <tr> <!--ກະຊວງ ປ້ອງກັນຄວາມສະງົບ -->
       <td style="width: 2px;">11</td>
       <td>
-        <a href="http://laosecurity.gov.la/test/index.php?lang=en" class="card my-1" target="_blank">
+        <a href="http://laosecurity.gov.la/test/index.php?lang=en" class="card my-1 link-primary" target="_blank">
           <div class="card-body">
-            {{ trans('message.Ministry of Public Security') }}
+            <strong>{{ trans('message.Ministry of Public Security') }}</strong>
           </div>
         </a>
       </td>
@@ -141,9 +144,9 @@
     <tr> <!--ກະຊວງ ຖະແຫຼງຂ່າວ, ວັດທະນະທຳ ແລະ ທ່ອງທ່ຽວ # -->
       <td style="width: 2px;">12</td>
       <td>
-        <a href="#" class="card my-1">
+        <a href="#" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Ministry of Information, Culture and Tourism') }}
+            <strong>{{ trans('message.Ministry of Information, Culture and Tourism') }}</strong>
           </div>
         </a>
       </td>
@@ -152,9 +155,9 @@
     <tr> <!--Goverment Inspection Authority # -->
       <td style="width: 2px;">13</td>
       <td>
-        <a href="#" class="card my-1">
+        <a href="#" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Goverment Inspection Authority') }}
+            <strong>{{ trans('message.Goverment Inspection Authority') }}</strong>
             {{-- Goverment Inspection Authority --}}
           </div>
         </a>
@@ -164,9 +167,9 @@
     <tr> <!-- ກະຊວງ ໂຍທາທິການ ແລະ ຂົນສົ່ງ -->
       <td style="width: 2px;">13</td>
       <td>
-        <a href="http://www.mpwt.gov.la/en/" class="card my-1">
+        <a href="http://www.mpwt.gov.la/en/" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Ministry of Interior') }}
+            <strong>{{ trans('message.Ministry of Public Work & transport') }}</strong>
           </div>
         </a>
       </td>
@@ -175,9 +178,9 @@
     <tr> <!-- ກະຊວງ ພາຍໃນ -->
       <td style="width: 2px;">14</td>
       <td>
-        <a href="http://www.moha.gov.la/" class="card my-1">
+        <a href="http://www.moha.gov.la/" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Ministry of Interior') }}
+            <strong>{{ trans('message.Ministry of Interior') }}</strong>
           </div>
         </a>
       </td>
@@ -186,9 +189,9 @@
     <tr> <!-- ກະຊວງ ການຕ່າງປະເທດ -->
       <td style="width: 2px;">15</td>
       <td>
-        <a href="http://www.mofa.gov.la/index.php/lo/" class="card my-1">
+        <a href="http://www.mofa.gov.la/index.php/lo/" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Ministry of Foreign Affairs') }}
+            <strong>{{ trans('message.Ministry of Foreign Affairs') }}</strong>
           </div>
         </a>
       </td>
@@ -197,9 +200,9 @@
     <tr> <!-- ກະຊວງ ປ້ອງກັນປະເທດ -->
       <td style="width: 2px;">16</td>
       <td>
-        <a href="http://www.mod.gov.la/" class="card my-1">
+        <a href="http://www.mod.gov.la/" class="card my-1 link-primary">
           <div class="card-body">
-            {{ trans('message.Ministry of National Defance') }}
+            <strong>{{ trans('message.Ministry of National Defance') }}</strong>
           </div>
         </a>
       </td>

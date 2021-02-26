@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PPD LAOS</title>
+  <title>Arsha Bootstrap Template - Index</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,96 +42,76 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{ url('/') }}">PPD</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">PPD</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="{{ url('/') }}">{{ trans('message.Home') }}</a></li>
-          
-          <li class="drop-down"><a href="About_Us">{{ trans('message.About') }}</a>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li class="drop-down"><a href="">About</a>
             <ul>
-              <li><a href="{{ url('/mission_vision') }}">{{ trans('message.Mission & Vision Statement') }}</a></li>
-              <li><a href="{{ url('/functions') }}">{{ trans('message.Functions') }}</a></li>
-              <li><a href="{{ url('/who_is_ppd') }}">{{ trans('message.Who is who in PPD') }}</a></li>
-              <li><a href="{{ url('/career_opportunity') }}">{{ trans('message.Career Opportunities') }}</a></li>
-            </ul>    
-          </li>
-
-          <li class="drop-down"><a href="">{{ trans('message.Tenders') }}</a>
-            <ul>
-              <li><a href="Portfolio_Details.html">{{ trans('message.Opportunities') }}</a></li>
-              <li><a href="Contract_Awarded .html">{{ trans('message.Contract Awarded') }}</a></li>
+              <li><a href="#">Mission & Vision Statement</a></li>
+              <li><a href="#">Functions</a></li>
+              <li><a href="#">Who is who in PPD</a></li>
+              <li><a href="#">Career Opportunities</a></li>    
+              </li>
             </ul>
           </li>
-
-          <li class="drop-down"><a href="">{{ trans('message.Suppliers') }}</a>
+          <li class="drop-down"><a href="">Tenders</a>
             <ul>
-              <li><a href="List_of_suppliers.html">{{ trans('message.List of suppliers') }}</a></li>
-              <li><a href="Complaint_Mechanism.html">{{ trans('message.Complaint Mechanism') }}</a></li>
+              <li><a href="Portfolio_Details.html">Opportunities</a></li>
+              <li><a href="Contract_Awarded .html">Contract Awarded </a></li>
+                 
+              </li>
             </ul>
           </li>
-
-          <li class="drop-down"><a href="">{{ trans('message.Events') }}</a>
+          <li class="drop-down"><a href="">Suppliers</a>
             <ul>
-              <li><a href="#">{{ trans('message.Workshop') }}</a></li>
-              <li><a href="#">{{ trans('message.Training') }}</a></li>
-              <li><a href="#">{{ trans('message.Other activities') }}</a></li>
-              <li><a href="#">{{ trans('message.Training Materials (PPT etc…)') }}</a></li>          
-            </ul>  
-          </li>
-
-          <li ><a href="{{ url('/legal') }}">{{ trans('message.Legal') }}</a></li>
-          {{-- <li class="drop-down"><a href="">{{ trans('message.Legal Framework') }}</a>
-            <ul>
-              <li><a href="#">{{ trans('message.Law') }}</a></li>
-              <li><a href="#">{{ trans('message.Instruction') }}</a></li>
-              <li><a href="#">{{ trans('message.Other') }}</a></li>
-            </ul>
-          </li> --}}
-
-          <li ><a href="{{ url('/key_documents') }}">{{ trans('message.Keys Documents') }}</a></li>
-          {{-- <li class="drop-down"><a href="/key_documents">{{ trans('message.Keys Documents') }}</a>
-            <ul>
-              <li><a href="#">{{ trans('message.Procurement Manual') }}</a></li>
-              <li><a href="#">{{ trans('message.Standard Bidding Documents') }}</a></li>
-              <li><a href="#">{{ trans('message.Procurement checklist') }}</a></li>
-              <li><a href="#">{{ trans('message.Request for Proposal (consultant Services)') }}</a></li>
-              <li><a href="#">{{ trans('message.Evaluation Report') }}</a></li>
-              <li><a href="#">{{ trans('message.Templates') }}</a></li>
-              <li><a href="#">{{ trans('message.Complaints filing procedure') }}</a></li>
-              <li><a href="#">{{ trans('message.Other links') }}</a></li>
-            </ul> 
-          </li> --}}
-          
-          <li ><a href="{{ url('/agencies') }}">{{ trans('message.Agencies') }}</a></li>
-          
-          <li class="drop-down"><a href="#">{{ trans('message.Language') }}</a>
-            <ul>
-              <li><a href="{{ URL::to('change/en') }}"><img src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-round-250.png" width="30"> English</a></li>
-              <li><a href="{{ URL::to('change/lo') }}"><img src="https://cdn.countryflags.com/thumbs/laos/flag-round-250.png" width="30"> ພາສາລາວ</a></li>
+              <li><a href="List_of_suppliers.html">List of suppliers</a></li>
+              <li><a href="Complaint_Mechanism.html">Complaint Mechanism</a></li>
+                 
+              </li>
             </ul>
           </li>
-          
-          <a class="disabled" id="dropdownLang" data-toggle="dropdown">
-            {{ Config::get('app.locale') }}
-            <span class="caret"></span>
-          </a>
-          
-          <li ><a href="">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/home') }}">{{ trans('message.Manage') }}</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-                @endauth
-            @endif
+          <li class="drop-down"><a href="">Events</a>
+            <ul>
+              <li><a href="#">Workshop</a></li>
+              <li><a href="#">Training</a></li>
+              <li><a href="#">Other activities</a></li>
+              <li><a href="#">Training Materials (PPT etc…)</a></li>          
+              </li>
+            </ul>
           </li>
+          <li class="drop-down"><a href="">Legal Framework</a>
+            <ul>
+              <li><a href="#">Law</a></li>
+              <li><a href="#">Instruction</a></li>
+              <li><a href="#">Other</a></li>
+             
+              </li>
+            </ul>
+          </li>
+          <li class="drop-down"><a href="">Key Documents</a>
+            <ul>
+              <li><a href="#">Procurement Manual</a></li>
+              <li><a href="#">Standard Bidding Documents</a></li>
+              <li><a href="#">Procurement checklist</a></li>
+              <li><a href="#">Request for Proposal (consultant Services)</a></li>
+              <li><a href="#">Evaluation Report</a></li>
+              <li><a href="#">Templates</a></li>
+              <li><a href="#">omplaints filing procedure</a></li>
+              <li><a href="#">Other links</a></li>
+              </li>
+            </ul>
+          </li>        
+          <li ><a href="">Agencies</a>
+            
+          </li> 
 
         </ul>
       </nav><!-- .nav-menu -->
-
+    
 
     </div>
   </header><!-- End Header -->
@@ -211,10 +191,10 @@
                 <th scope="col">1000 Number of suppliers</th>
               </tr>
             </thead>
-
+            
           </table>
 
-
+      
 
         </div>
 
@@ -259,20 +239,19 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>ຂ່າວສານ</h2>
+          <h2>Team</h2>
           <p></p>
         </div>
 
         <div class="row">
 
-        @foreach($news as $newsItem)
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic">{{ $newsItem->image}}</div>
+              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>{{ $newsItem->title}}</h4>
-                <span><td>{{ $newsItem->date}}</td></span>
-                <p><td>{{ $newsItem->content}}</td></p>
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -283,8 +262,56 @@
             </div>
           </div>
 
-          @endforeach
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -296,6 +323,10 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
+
+
+
+    
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">

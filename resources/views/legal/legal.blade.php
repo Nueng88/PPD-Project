@@ -1,5 +1,13 @@
 @extends('layouts.theme')
 
+@section('tab-title')
+{{trans('message.Legal')}}
+@endsection
+
+@section('title')
+{{trans('message.Legal')}}
+@endsection
+
 @section('content')
 
 <table class="table">
@@ -14,7 +22,7 @@
     <tbody>
         @foreach ($legals as $legal)
         <tr>
-            <td>{{ $legal->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>@lang('legal.'.$legal->title_lao)</td>
             <td>@lang('message.'.$legal->legal_cate)</td>
             <td>

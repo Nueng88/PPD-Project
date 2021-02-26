@@ -27,7 +27,7 @@ class LegalController extends Controller
         ->where('language_lines.group', '=', 'legal')
         ->get();
 
-        return view('legal.legal', compact('legals'));
+        return view('legal.legal', compact('legals'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function index()
@@ -40,7 +40,7 @@ class LegalController extends Controller
         ->where('language_lines.group', '=', 'legal')
         ->get();
 
-        return view('backend.legal.create', compact('legals'));
+        return view('backend.legal.index', compact('legals'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -65,7 +65,7 @@ class LegalController extends Controller
             'legal_cate' => 'required',
             'title_lao' => 'required|unique:legals,title_lao',
             'title_en' => 'required',
-            'file' => 'required|mimes:pdf,xlx,csv,doc',
+            'file' => 'required|mimes:pdf,xlx,csv,doc,docx,xlsx',
         ]);
         
         $fileName = time().'.'.$request->file->getClientOriginalName();  
@@ -106,9 +106,12 @@ class LegalController extends Controller
      * @param  \App\Models\Legal  $legal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Legal $legal)
+    public function edit($legal)
     {
-        //
+        $legals = DB::table('legals')
+        ->where('title_lao', '=', $legal)->get();
+        
+        return view('backend.legal.edit',compact('legals'));
     }
 
     /**
@@ -118,9 +121,32 @@ class LegalController extends Controller
      * @param  \App\Models\Legal  $legal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Legal $legal)
+    public function update(Request $request, $legal)
     {
-        //
+        request()->validate([
+            'legal_cate' => 'required',
+            'title_lao' => 'required',
+            'title_en' => 'required',
+            // 'file' => 'required|mimes:pdf,xlx,csv,doc,docx,xlsx',
+        ]);
+
+        $legals = DB::table('legals')
+        ->where('title_lao', '=', $legal)
+        ->update(['title_lao' => $request->get('title_lao'),
+                'title_en' => $request->get('title_en'),
+                'legal_cate' => $request->get('legal_cate'),
+        ]);
+
+
+        $LanguageLine = DB::table('language_lines')
+        ->where('group', '=', 'legal')
+        ->where('key', '=', $legal)
+        ->update(['key' => $request->get('title_lao'),
+                  'text' => ['en' => $request->get('title_en'), 'lo' => $request->get('title_lao')],
+        ]);
+
+        return redirect()->route('manage_legal.index')
+                        ->with('success','Update Success');
     }
 
     /**
@@ -129,8 +155,24 @@ class LegalController extends Controller
      * @param  \App\Models\Legal  $legal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Legal $legal)
+    public function destroy($legal)
     {
-        //
+        $files = DB::table('legals')
+        ->select('file')
+        ->where('title_lao', '=', $legal)->get();
+
+        foreach ($files as $file) {
+            Storage::delete('public/'.$file->file);
+        }
+
+        $LanguageLine = DB::table('language_lines')
+        ->where('group', '=', 'legal')
+        ->where('key', '=', $legal)->delete();
+
+        $legals = DB::table('legals')
+        ->where('title_lao', '=', $legal)->delete();
+
+        return redirect()->route('manage_legal.index')
+                        ->with('success','Delete Success');
     }
 }

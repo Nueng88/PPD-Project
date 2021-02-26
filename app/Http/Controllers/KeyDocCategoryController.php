@@ -22,9 +22,10 @@ class KeyDocCategoryController extends Controller
             'key_doc_categories.id','key_doc_categories.title_lao','key_doc_categories.title_en',
             'language_lines.group','language_lines.key'
             )
+        ->where('language_lines.group', '=', 'key_doc_category')->orderBy('id', 'asc')
         ->get();
 
-        return view('backend.key_document.key_category.create', compact('key_doc_categories'));
+        return view('backend.key_document.key_category.create', compact('key_doc_categories'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

@@ -1,6 +1,11 @@
 <?php
 
+$en = DB::table('key_doc_categories')->get();
+
+foreach ($en as $en) {
+}
 return [
+    
     'Language' => 'Language',
     'Manage' => 'Manage',
     'Edit' => 'Edit',

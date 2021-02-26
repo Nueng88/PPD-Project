@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>ແກ້ໄຂຫົວໜ່ວຍ</h2>
+                <h2>ແກ້ໄຂ ໝວດໝູ່ ເອກະສານທີ່ກ່ຽວຂ້ອງ</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-danger" href="{{ route('manage_key_categories.index') }}"> <b> ກັບຄືນ</b></a>
@@ -30,8 +30,9 @@
     	@csrf
         @method('PUT')
 
-
-         <div class="row">
+<div class="card shadow">
+    <div class="card-body">
+        <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>lao:</strong>
@@ -48,6 +49,9 @@
 		      <button type="submit" class="btn btn-primary"><b> ບັນທຶກ</b></button>
 		    </div>
 		</div>
+    </div>
+</div>
+         
     </form>     
     @endforeach
     

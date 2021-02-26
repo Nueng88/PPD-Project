@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - Arsha Bootstrap Template</title>
+  <title>@yield('tab-title')</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,10 +53,10 @@
           
           <li class="drop-down"><a href="About_Us">{{ trans('message.About') }}</a>
             <ul>
-              <li><a href="#">{{ trans('message.Mission & Vision Statement') }}</a></li>
-              <li><a href="#">{{ trans('message.Functions') }}</a></li>
-              <li><a href="#">{{ trans('message.Who is who in PPD') }}</a></li>
-              <li><a href="#">{{ trans('message.Career Opportunities') }}</a></li>
+              <li><a href="{{ url('/mission_vision') }}">{{ trans('message.Mission & Vision Statement') }}</a></li>
+              <li><a href="{{ url('/functions') }}">{{ trans('message.Functions') }}</a></li>
+              <li><a href="{{ url('/who_is_ppd') }}">{{ trans('message.Who is who in PPD') }}</a></li>
+              <li><a href="{{ url('/career_opportunity') }}">{{ trans('message.Career Opportunities') }}</a></li>
             </ul>    
           </li>
 
@@ -142,21 +142,18 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
 
-        <h2>@yield('name')</h2>
+        <h2>@yield('title')</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
+      @yield('content_no_container')
       <div class="container">
-
-
         <div class="portfolio-description">
-
-@yield('content')
+          @yield('content')
         </div>
-
       </div>
     </section><!-- End Portfolio Details Section -->
 

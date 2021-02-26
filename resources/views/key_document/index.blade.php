@@ -1,5 +1,13 @@
 @extends('layouts.theme')
 
+@section('tab-title')
+{{trans('message.Keys Documents')}}
+@endsection
+
+@section('title')
+{{trans('message.Keys Documents')}}
+@endsection
+
 @section('content')
 
 <table class="table">
@@ -14,7 +22,7 @@
     <tbody>
         @foreach ($key_documents as $key_doc)
         <tr>
-            <td>{{ $key_doc->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>@lang('key_doc.'.$key_doc->title_lao)</td>
             <td>@lang('key_doc_category.'.$key_doc->key_cate)</td>
             <td>

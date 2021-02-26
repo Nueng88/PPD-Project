@@ -24,24 +24,25 @@ class KeyDocumentController extends Controller
         ->join('language_lines', 'key_documents.title_lao', '=', 'language_lines.key')
         ->select(
             'key_documents.id','key_documents.title_lao','key_documents.title_en','key_documents.file','key_documents.key_cate',
-            'language_lines.group','language_lines.key'
+            'language_lines.group','language_lines.key',
             )
+        ->where('language_lines.group', '=', 'key_doc')->orderBy('id', 'asc')
         ->get();
-        return view('key_document.index', compact('key_documents','key_doc_categories'));
+        return view('key_document.index', compact('key_documents','key_doc_categories'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function index()
     {
-        $key_doc_categories = DB::table('key_doc_categories')->get();
         
         $key_documents = DB::table('key_documents')
         ->join('language_lines', 'key_documents.title_lao', '=', 'language_lines.key')
         ->select(
             'key_documents.id','key_documents.title_lao','key_documents.title_en','key_documents.file','key_documents.key_cate',
-            'language_lines.group','language_lines.key'
+            'language_lines.group','language_lines.key',
             )
+        ->where('language_lines.group', '=', 'key_doc')->orderBy('id', 'asc')
         ->get();
-        return view('backend.key_document.create', compact('key_documents','key_doc_categories'));
+        return view('backend.key_document.index', compact('key_documents'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -51,7 +52,9 @@ class KeyDocumentController extends Controller
      */
     public function create()
     {
-        return view('backend.key_document.create');
+        $key_doc_categories = DB::table('key_doc_categories')->orderBy('id', 'asc')->get();
+        
+        return view('backend.key_document.create', compact('key_doc_categories'));
     }
 
     /**
@@ -66,7 +69,7 @@ class KeyDocumentController extends Controller
             'key_cate' => 'required',
             'title_lao' => 'required|unique:key_documents,title_lao',
             'title_en' => 'required',
-            'file' => 'required|mimes:pdf,xlx,csv,doc,',
+            'file' => 'required|mimes:pdf,xlx,csv,doc,docx,xlsx',
         ]);
         
         $fileName = time().'.'.$request->file->getClientOriginalName();  
@@ -107,9 +110,13 @@ class KeyDocumentController extends Controller
      * @param  \App\Models\key_document  $key_document
      * @return \Illuminate\Http\Response
      */
-    public function edit(key_document $key_document)
+    public function edit($key_document)
     {
-        //
+        $key_doc_categories = DB::table('key_doc_categories')->get();
+        $key_documents = DB::table('key_documents')
+        ->where('title_lao', '=', $key_document)->get();
+        
+        return view('backend.key_document.edit',compact('key_doc_categories','key_documents','key_document'));
     }
 
     /**
@@ -119,9 +126,33 @@ class KeyDocumentController extends Controller
      * @param  \App\Models\key_document  $key_document
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, key_document $key_document)
+    public function update(Request $request, $key_document)
     {
-        //
+        request()->validate([
+            'key_cate' => 'required',
+            'title_lao' => 'required',
+            'title_en' => 'required',
+            // 'file' => 'required|mimes:pdf,xlx,csv,doc,docx,xlsx',
+        ]);
+
+
+        $key_documents = DB::table('key_documents')
+        ->where('title_lao', '=', $key_document)
+        ->update(['title_lao' => $request->get('title_lao'),
+                'title_en' => $request->get('title_en'),
+                'key_cate' => $request->get('key_cate'),
+        ]);
+
+
+        $LanguageLine = DB::table('language_lines')
+        ->where('group', '=', 'key_doc')
+        ->where('key', '=', $key_document)
+        ->update(['key' => $request->get('title_lao'),
+                  'text' => ['en' => $request->get('title_en'), 'lo' => $request->get('title_lao')],
+        ]);
+
+        return redirect()->route('manage_key.index')
+                        ->with('success','Update Success');
     }
 
     /**
@@ -132,14 +163,20 @@ class KeyDocumentController extends Controller
      */
     public function destroy($key_doc)
     {
-        $key_doc = DB::table('key_doc_categories')
-        ->where('title_lao', '=', $key_doc)->delete();
+        $files = DB::table('key_documents')
+        ->select('file')
+        ->where('title_lao', '=', $key_doc)->get();
 
+        foreach ($files as $file) {
+            Storage::delete('public/'.$file->file);
+        }
 
         $LanguageLine = DB::table('language_lines')
+        ->where('group', '=', 'key_doc')
         ->where('key', '=', $key_doc)->delete();
-        
 
+        $key_doc = DB::table('key_documents')
+        ->where('title_lao', '=', $key_doc)->delete();
 
         return redirect()->route('manage_key.index')
                         ->with('success','Delete Success');

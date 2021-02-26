@@ -11,9 +11,9 @@ return [
     'Home' => 'ໜ້າຫຼັກ',
     'About' => 'ກ່ຽວກັບພວກເຮົາ',
     'Mission & Vision Statement' => 'ວິໄສທັດ',
-    'Functions' => 'ພາວະໜ້າທີ່',
+    'Functions' => 'ພາລະໜ້າທີ່',
     'Who is who in PPD' => 'ຄະນະກຳມະການ',
-    'Career Opportunities' => '',
+    'Career Opportunities' => 'ສະໝັກວຽກ',
     
     'Tenders' => 'ການປະມູນ',
     'Opportunities' => 'ການຈັດຊື້ຈັດຈ້າງ',
@@ -62,8 +62,8 @@ return [
     'Ministry of Public Security' =>'ກະຊວງ ປ້ອງກັນຄວາມສະງົບ',
     'Ministry of Information, Culture and Tourism' =>'ກະຊວງ ຖະແຫຼງຂ່າວ, ວັດທະນະທຳ ແລະ ທ່ອງທ່ຽວ',
     'Goverment Inspection Authority' =>'Goverment Inspection Authority',
-    'Ministry of Interior' =>'ກະຊວງ ຍທາທິການ ແລະ ຂົນສົ່ງ',
+    'Ministry of Public Work & transport' =>'ກະຊວງ ຍທາທິການ ແລະ ຂົນສົ່ງ',
     'Ministry of Interior' =>'ກະຊວງ ພາຍໃນ',
     'Ministry of Foreign Affairs' =>'ກະຊວງ ການຕ່າງປະເທດ',
     'Ministry of National Defance' =>'ກະຊວງ ປ້ອງກັນປະເທດ'
-];
+]; 
