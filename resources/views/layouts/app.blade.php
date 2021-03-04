@@ -82,8 +82,13 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">ຈັດຊື້-ຈັດຈ້າງ
                             <li class="nav-item">
-                                <a href="{{ url('/add_news') }}" class="nav-link">
+                                <a href="{{ url('/manage_proc_type') }}" class="nav-link">
                                 <i class="nav-icon fa fa-calendar"></i>  ໝວດໝູ່ ການຈັດຊື້</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ url('/manage_proc_method') }}" class="nav-link">
+                                <i class="nav-icon fa fa-calendar"></i>  ວຶທີການຈັດຊື້ </a>
                             </li>
     
                             <li class="nav-item has-treeview">

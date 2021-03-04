@@ -11,6 +11,9 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\KeyDocCategoryController;
 use App\Http\Controllers\KeyDocumentController;
 use App\Http\Controllers\LegalController;
+
+use App\Http\Controllers\ProcumentTypeController;
+use App\Http\Controllers\ProcumentMethodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +47,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('manage_key', KeyDocumentController::class);
     Route::resource('manage_legal', LegalController::class);
 
+    Route::resource('manage_proc_type', ProcumentTypeController::class);
+    Route::resource('manage_proc_method', ProcumentMethodController::class);
+
     Route::get('/add_newsitem',[App\Http\Controllers\NewsitemController::class, 'addNewsitem'])->name('addNewsitem');
     Route::post('/add_newsitem', [App\Http\Controllers\NewsitemController::class,'storeNewsitem'])->name('addNews.store');
 
@@ -53,13 +59,15 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 
-// fron_end
+// front_end
 
 Route::get('/',[App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 Route::get('/',[App\Http\Controllers\WelcomeController::class, 'News_list'])->name('News_list');
 Route::get('/key_documents', [App\Http\Controllers\KeyDocumentController::class, 'view'])->name('key_documents');
 Route::get('/legal', [App\Http\Controllers\LegalController::class, 'view'])->name('legal');
 
+
+//About
 Route::get('/mission_vision', function () {
     return view('about_us.mission_vision');
 })->name('mission_vision');
@@ -76,6 +84,29 @@ Route::get('/career_opportunity', function () {
     return view('about_us.career');
 })->name('career');
 
+
+//tenders
+Route::get('/opportunities', function () {
+    return view('tenders.opportunities');
+})->name('opportunities');
+
+Route::get('/contract_awarded', function () {
+    return view('tenders.contract_awarded');
+})->name('contract_awarded');
+
+
+//suppliers
+Route::get('/list_of_suppliers', function () {
+    return view('suppliers.list_of_suppliers');
+})->name('list_of_suppliers');
+
+Route::get('/Complaint_Mechanism', function () {
+    return view('suppliers.Complaint_Mechanism');
+})->name('Complaint_Mechanism');
+
+
+//agencies
 Route::get('/agencies', function () {
     return view('agencies.agencies');
 })->name('agencies');
+

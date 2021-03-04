@@ -83,7 +83,7 @@ class KeyDocCategoryController extends Controller
     public function edit($key_doc_category)
     {
         $key_doc_categories = DB::table('key_doc_categories')
-        ->where('title_lao', '=', $key_doc_category)->get();;
+        ->where('title_lao', '=', $key_doc_category)->get();
         return view('backend.key_document.key_category.edit',compact('key_doc_categories','key_doc_category'));
     }
 
@@ -96,7 +96,6 @@ class KeyDocCategoryController extends Controller
      */
     public function update(Request $request, $key_doc_category)
     {
-
 
         $key_doc_categories = DB::table('key_doc_categories')
         ->where('title_lao', '=', $key_doc_category)

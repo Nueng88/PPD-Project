@@ -69,8 +69,8 @@
 
           <li class="drop-down"><a href="">{{ trans('message.Suppliers') }}</a>
             <ul>
-              <li><a href="List_of_suppliers.html">{{ trans('message.List of suppliers') }}</a></li>
-              <li><a href="Complaint_Mechanism.html">{{ trans('message.Complaint Mechanism') }}</a></li>
+              <li><a href="{{ url('/list_of_suppliers') }}">{{ trans('message.List of suppliers') }}</a></li>
+              <li><a href="{{ url('/Complaint_Mechanism') }}">{{ trans('message.Complaint Mechanism') }}</a></li>
             </ul>
           </li>
 
